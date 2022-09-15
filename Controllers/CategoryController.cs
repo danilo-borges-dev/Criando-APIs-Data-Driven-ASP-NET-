@@ -18,7 +18,7 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPost]
-    [Route("")] 
+    [Route("")]
     public string Post ()
     {
         return "Post";
