@@ -14,27 +14,34 @@ public class CategoryController : ControllerBase
     [Route("")]
     public string Get ()
     {
-        return "Get!";
+        return "GET!";
+    }
+
+    [HttpGet]
+    [Route("{id:int}")]
+    public string GetById (int id)
+    {
+        return $"GET ID! {id}";
     }
 
     [HttpPost]
     [Route("")]
     public string Post ()
     {
-        return "Post";
+        return "POST";
     }
 
     [HttpPut]
     [Route("")]
     public string Put ()
     {
-        return "Put";
+        return "PUT";
     }
 
     [HttpDelete]
     [Route("")]
     public string Delete ()
     {
-        return "Delete";
+        return "DELETE";
     }
 }
