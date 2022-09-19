@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Shop.Models;
 
 // Endpoint == URL
 // http://localhost/5000
@@ -26,9 +27,9 @@ public class CategoryController : ControllerBase
 
     [HttpPost]
     [Route("")]
-    public string Post ()
+    public Category Post ([FromBody]Category model)
     {
-        return "POST";
+        return model;
     }
 
     [HttpPut]
