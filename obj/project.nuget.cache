@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SQnmBzQIwwFd2rTztZzGVNN0cvZs3z8ndn+uEQHkyPAIG/C0oVq9ttsoOaDO6JLBddWcO1ohaLIO9zn63DoHCg==",
+  "dgSpecHash": "fHcKnKRRhX0HApKstH5Kl4MatH4KkfXTU+9feInpsUH6yNFgS2KjMhODOXAh+1srGAwRv9AENxT/u7xZmpJnkQ==",
   "success": true,
   "projectFilePath": "C:\\Workspace\\Criando-APIs-Data-Driven-ASP-NET-\\Criando-APIs-Data-Driven-ASP-NET-.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\danil\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.9\\microsoft.entityframeworkcore.6.0.9.nupkg.sha512",
     "C:\\Users\\danil\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.9\\microsoft.entityframeworkcore.abstractions.6.0.9.nupkg.sha512",
     "C:\\Users\\danil\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.9\\microsoft.entityframeworkcore.analyzers.6.0.9.nupkg.sha512",
+    "C:\\Users\\danil\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\6.0.9\\microsoft.entityframeworkcore.inmemory.6.0.9.nupkg.sha512",
     "C:\\Users\\danil\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.9\\microsoft.entityframeworkcore.relational.6.0.9.nupkg.sha512",
     "C:\\Users\\danil\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\6.0.9\\microsoft.entityframeworkcore.sqlserver.6.0.9.nupkg.sha512",
     "C:\\Users\\danil\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
