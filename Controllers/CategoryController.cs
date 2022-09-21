@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Shop.Models;
+using Shop.Data;
 
 // Endpoint == URL
 // http://localhost/5000
@@ -13,41 +14,54 @@ public class CategoryController : ControllerBase
 {
     [HttpGet]
     [Route("")]
-    public async Task<ActionResult<List<Category>>> Get ()
+    public async Task<ActionResult<List<Category>>> Get()
     {
         return new List<Category>();
     }
 
     [HttpGet]
     [Route("{id:int}")]
-    public async Task<ActionResult<Category>> GetById (int id)
+    public async Task<ActionResult<Category>> GetById(int id)
     {
         return new Category();
     }
 
     [HttpPost]
     [Route("")]
-    public async Task<ActionResult<Category>> Post ([FromBody]Category model)
+    public async Task<ActionResult<Category>> Post(
+        [FromBody] Category model,
+        [FromServices] DataContext context
+        )
     {
-        if(!ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
-        return Ok(model);
+
+        try
+        {
+            context.Categories.Add(model);
+            await context.SaveChangesAsync();
+            return Ok(model);
+        }
+        catch 
+        {
+            return BadRequest(new { message = "Não foi possível criar a categoria." });
+        }
     }
 
     [HttpPut]
     [Route("{id:int}")]
-    public async Task<ActionResult<Category>> Put (int id, [FromBody]Category model)
+    public async Task<ActionResult<Category>> Put(int id, [FromBody] Category model)
     {
         // Verifica se o ID informado é o mesmo do modelo
-        if (model.Id == id) 
+        if (model.Id == id)
         {
-            return NotFound(new { message = "Categoria não econtrada "});
+            return NotFound(new { message = "Categoria não econtrada " });
         }
 
         // Verifica se os dados são válidos
-        if(!ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
@@ -56,7 +70,7 @@ public class CategoryController : ControllerBase
 
     [HttpDelete]
     [Route("{id:int}")]
-    public async Task<ActionResult<Category>> Delete ()
+    public async Task<ActionResult<Category>> Delete()
     {
         return Ok();
     }

@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 
+
 #region Conexão Conexão com o Banco de Dados
 builder.Services.AddDbContext<DataContext>(options =>
 {
@@ -16,6 +17,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddScoped<DataContext, DataContext>(); // <- Fecha a Conexão com o Banco de Dados
 // Acima - O bloco de Conexão com o Banco de Dados
 #endregion
+
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
