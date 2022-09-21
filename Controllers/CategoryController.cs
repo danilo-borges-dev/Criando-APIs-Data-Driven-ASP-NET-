@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Shop.Models;
 using Shop.Data;
+using Microsoft.EntityFrameworkCore;
 
 // Endpoint == URL
 // http://localhost/5000
@@ -44,7 +45,7 @@ public class CategoryController : ControllerBase
             await context.SaveChangesAsync();
             return Ok(model);
         }
-        catch 
+        catch
         {
             return BadRequest(new { message = "Não foi possível criar a categoria." });
         }
@@ -52,7 +53,11 @@ public class CategoryController : ControllerBase
 
     [HttpPut]
     [Route("{id:int}")]
-    public async Task<ActionResult<Category>> Put(int id, [FromBody] Category model)
+    public async Task<ActionResult<Category>> Put(
+        int id,
+        [FromBody] Category model,
+        [FromServices] DataContext context
+        )
     {
         // Verifica se o ID informado é o mesmo do modelo
         if (model.Id == id)
@@ -65,7 +70,21 @@ public class CategoryController : ControllerBase
         {
             return BadRequest(ModelState);
         }
-        return NotFound();
+
+        try
+        {
+            context.Entry<Category>(model).State = EntityState.Modified;
+            await context.SaveChangesAsync();
+            return Ok(model);
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            return BadRequest(new { message = "Não foi possível atualizar a categoria. " });
+        }
+        catch (Exception)
+        {
+            return BadRequest(new { message = "Não foi possível atualizar a categoria. " });
+        }
     }
 
     [HttpDelete]
